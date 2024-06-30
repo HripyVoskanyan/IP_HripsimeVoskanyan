@@ -1,5 +1,5 @@
 
-subDirs = newArray("sv");
+subDirs = newArray("hue", "sat", "val");
 baseDir = "C:/AUA/Image Processing/HW1/";  
 
 setBatchMode(true);
