@@ -24,8 +24,8 @@ public class Extract_Face_Pixels implements PlugInFilter {
         int height = ip.getHeight();
 
         // Set specific numerical thresholds
-        int thresholdLow = 50;  // Example low threshold
-        int thresholdHigh = 200; // Example high threshold
+        int thresholdLow = 100;  // also works with 50-100 for the first couple of images
+        int thresholdHigh = 200; 
 
         // Process image pixels
         for (int y = 0; y < height; y++) {
