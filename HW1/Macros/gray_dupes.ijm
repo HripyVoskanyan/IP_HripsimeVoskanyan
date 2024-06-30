@@ -39,7 +39,7 @@ for (i = 0; i < list.length; i++) {
 }
 setBatchMode(false);
 
-// Custom function to check if an item is in the array
+
 function isInArray(arr, item) {
     for (j = 0; j < arr.length; j++) {
         if (arr[j] == item) {
