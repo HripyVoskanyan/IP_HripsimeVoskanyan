@@ -1,40 +1,34 @@
-// Set the directories for input and output
+
 inputDir = "C:/AUA/Image Processing/HW1/dataset/";
 outputDir = "C:/AUA/Image Processing/HW1/sv/";
 
-// Ensure the output directory exists
+
 File.makeDirectory(outputDir);
 
 // Get a list of all files in the input directory
 listOfFiles = getFileList(inputDir);
 
-// Enable batch mode to prevent display of images
+
 setBatchMode(true);
 
 // Process each file in the directory
 for (i = 0; i < listOfFiles.length; i++) {
-    // Build the full path for each image file
+
     imagePath = inputDir + listOfFiles[i];
     
-    // Check if the file is an image (adjust this as necessary for your image types)
+
     if (endsWith(imagePath, ".jpg") || endsWith(imagePath, ".png") || endsWith(imagePath, ".tif")) {
-        // Open the image silently
         open(imagePath);
-        
-        // Run the plugin - make sure to replace "SV_Plugin" with the correct plugin name
+        // added this plugin with this name to PLugin/Filters
         run("SV Plugin");
         
-        // Get the title of the processed image
         processedImage = getTitle();
-        
-        // Build the output path for the processed image
+
         outputPath = outputDir + "SV_" + listOfFiles[i];
         
-        // Save the processed image in the specified output directory
         saveAs("png", outputPath);
         print("Processed and saved: " + outputPath);
         
-        // Close the processed image to free up memory
         close();
     }
 }
