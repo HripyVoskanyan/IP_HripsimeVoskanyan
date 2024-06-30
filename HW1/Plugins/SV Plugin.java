@@ -15,7 +15,6 @@ public class SV_Plugin implements PlugInFilter {
         int width = ip.getWidth();
         int height = ip.getHeight();
 
-        // New image to store the product of saturation and brightness
         ImageProcessor prodIp = new FloatProcessor(width, height);
 
         // Process each pixel
