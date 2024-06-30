@@ -11,7 +11,8 @@ wb = load_workbook(excel_path)
 folder_to_sheet = {
     'hue': 'Hist_Hue',
     'sat': 'Hist_Sat',
-    'val': 'Hist_Val'
+    'val': 'Hist_Val',
+    #'sv': 'Hist_SV', comment the others and uncomment this when doing task 4
 }
 
 # Process each folder and corresponding sheet
@@ -25,7 +26,7 @@ for folder, sheet_name in folder_to_sheet.items():
     for col in range(3, 27):
         cell_value = ws.cell(row=2, column=col).value
         cell_coordinate = ws.cell(row=2, column=col).coordinate
-        excel_headers[cell_value] = col  
+        excel_headers[cell_value] = col
         print(f"Cell {cell_coordinate}: {cell_value}")
 
     # Read filenames from the current directory
@@ -33,6 +34,7 @@ for folder, sheet_name in folder_to_sheet.items():
     for filename in os.listdir(folder_path):
         if filename.endswith('.csv'):
             first_ten = filename[:10]
+            #first_ten = filename[3:9] + ".jpg" uncomment this when doing task 4
             csv_data[first_ten] = pd.read_csv(os.path.join(folder_path, filename), header=None)
 
     # Match and write data
